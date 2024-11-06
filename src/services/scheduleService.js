@@ -235,7 +235,11 @@ export const getScheduleShareLinkService = async (randomString) => {
   try {
     // Tạo URL từ `randomString` và tìm trong bảng `PublicLink`
     const publicLink = await model.PublicLink.findOne({
-      where: { link: `http://localhost:5173/link-schedule/${randomString}` },
+      where: {
+        link: `${
+          process.env.APP_DOMAIN || "http://localhost:5173"
+        }/link-schedule/${randomString}`,
+      },
     });
 
     if (!publicLink) {
