@@ -217,7 +217,7 @@ export const sharedScheduleService = async (id) => {
     if (existingLink) {
       return { message: existingLink.link };
     }
-    const domain = "http://localhost:5173";
+    const domain = process.env.APP_DOMAIN || "http://localhost:5173";
     const path = "link-schedule";
     const randomString = crypto.randomBytes(5).toString("hex");
     const generateLink = `${domain}/${path}/${randomString}`;
