@@ -14,7 +14,7 @@ COPY . .
 
 
 
-CMD [ "npm","run","prod" ]
+CMD [ "npm","start" ]
 #docker network create node-network
 # docker run -d -p 3307:3306 --network=node-network -e MYSQL_ROOT_PASSWORD=1234 --name node-mysql mysql
 #docker build . -t img-node
