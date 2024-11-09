@@ -215,7 +215,7 @@ export const sharedScheduleService = async (id) => {
       where: { user_id: id },
     });
     if (existingLink) {
-      return { message: existingLink.link };
+      return { message: existingLink.link, data: { link: existingLink.link } };
     }
     const domain = process.env.APP_DOMAIN || "http://localhost:5173";
     const path = "link-schedule";
